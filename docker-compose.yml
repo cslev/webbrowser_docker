@@ -1,0 +1,19 @@
+version: '3.6'
+
+services:
+  firefox:
+    image: cslev/webbrowser_docker:latest
+    container_name: webbrowser
+    ports:
+      - target: 5900
+        published: 5555
+        protocol: 'tcp'
+    volumes:
+      - '/etc/localtime:/etc/localtime:ro'
+      - './container_data/cache/:/root/.cache:rw'
+      - './container_data/mozilla:/root/.mozilla:rw'
+      - './container_data/config:/root/.config:rw'
+      - './container_data/SSL:/root/SSL:rw'
+    # stdin_open: true #docker run -i
+    # tty: true        #docker run -t
+    # command: bash
