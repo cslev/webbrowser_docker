@@ -14,6 +14,9 @@ services:
       - './container_data/mozilla:/root/.mozilla:rw'
       - './container_data/config:/root/.config:rw'
       - './container_data/SSL:/root/SSL:rw'
+    dns:
+      - 9.9.9.9
+      - 1.1.1.1
     # stdin_open: true #docker run -i
     # tty: true        #docker run -t
     # command: bash
