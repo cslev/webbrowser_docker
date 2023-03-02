@@ -37,6 +37,15 @@ services:
       - target: 5900
         published: 5555
         protocol: 'tcp'
+    volumes:
+      - '/etc/localtime:/etc/localtime:ro'
+      - './container_data/cache/:/root/.cache:rw'
+      - './container_data/mozilla:/root/.mozilla:rw'
+      - './container_data/config:/root/.config:rw'
+      - './container_data/SSL:/root/SSL:rw'
+    dns:
+      - 9.9.9.9
+      - 1.1.1.1
 ```
 As you can see, the VNC port 5900 will be exposed to the host machine by port 5555.
 
@@ -80,8 +89,9 @@ The argument `--no-sandbox` is needed, otherwise Chrome complains.
 ## Start Brave
 In the `xterm`, issue the following command:
 ```
-brave
+brave-browser-stable --no-sandbox
 ```
+The argument `--no-sandbox` is needed, otherwise Chrome complains.
 
 
 # Closing a browser window and start another
