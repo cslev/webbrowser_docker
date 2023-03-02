@@ -50,7 +50,9 @@ ENV DEPS  lsb-release \
           libasound2 \
           libegl1 \
           libpci3 \
-          sudo 
+          sudo \
+	  iputils-ping \
+          dnsutils 
 
 
 COPY source /webbrowser
